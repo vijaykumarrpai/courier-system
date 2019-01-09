@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 
-router.get('/', function(req, res, next){
+router.get('/', (req, res, next) => {
     return res.sendFile(path.join(__dirname + '/index/index.html'));
 });
 
-router.post('/', function(req, res, next) {
+router.post('/', (req, res, next) => {
     if (req.body.password !== req.body.passwordConf) {
         const err = new Error('Please enter correct password');
         err.status = 400;
@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
             passwordConf: req.body.passwordConf,
         }
 
-        User.create(userData, function(error, user) {
+        User.create(userData, (error, user) => {
             if(error) {
                 return next(error);
             } else {
@@ -32,9 +32,9 @@ router.post('/', function(req, res, next) {
         });
 
     } else if (req.body.logemail && req.body.logpassword) {
-        User.authenticate(req.body.logemail, req.body.logpassword, function(error, user) {
+        User.authenticate(req.body.logemail, req.body.logpassword, (error, user) => {
             if(error || !user) {
-                const err = new Error('Wrong email or password');
+                const err = new Error('Wrong email or password or not a registered user');
                 err.status = 401;
                 return next(err);
             } else {
@@ -49,9 +49,50 @@ router.post('/', function(req, res, next) {
     }
 })
 
-router.get('/profile', function(req, res, next) {
+// router.get('/:id', (req, res) => {
+//     let id = req.params.id;
+
+//     User.findById(id).then((User) => {
+//         if(user) {
+//             res.send(user);
+//         } else {
+//             res.status(404).send({
+//                 notice: 'User not found'
+//             })
+//         }
+//     })
+//     .catch((err) => {
+//         res.send(err);
+//     })
+// });
+
+// router.delete('/users/:id', (req, res) => {
+//     let token = req.header('x-auth');
+//     let detoken = tokenValidate(token);
+//     id = deToken.id;
+//     User.findById(id).then((user) => {
+//         let found = user.token.find(ele => {return ele.token == token});
+//         user.tokens.remove(found_id);
+//         return user.save()
+//     }).then((user) => {
+//         res.send({
+//             notice: 'successfully logged out'
+//         });
+//     })
+//     .catch((err) => {
+//         res.send(err);
+//     });
+// });
+
+// tokenValidate = function(token) {
+//     let sentToken = token;
+//     sentToken = jwt.verify(sentToken, 'supersecret');
+//     return sentToken;
+// }
+
+router.get('/profile', (req, res, next) => {
     User.findById(req.session.userId)
-    .exec(function(error, user) {
+    .exec((error, user) => {
         if (error) {
             return next(error);
         } else {
@@ -66,9 +107,9 @@ router.get('/profile', function(req, res, next) {
     });
 });
 
-router.get('/logout', function(req, res, next) {
+router.get('/logout', (req, res, next) => {
     if(req.session) {
-        req.session.destroy(function (err) {
+        req.session.destroy((err) => {
             if (err) {
                 return next(err);
             } else {
