@@ -1,20 +1,40 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const validator = require('email-validator');
 
 const UserSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    unique: true,
+    trim: true,
+    minlength: 4,
+    maxlength: 64
+  },
   email: {
     type: String,
     unique: true,
     required: true,
-    trim: true
+    trim: true,
+    validate: {
+      validator: function(value) {
+        return validator.validate(value);
+      },
+      message: function() {
+        return 'Invalid email format'
+      }
+    }
   },
-  username: {
-    type: String,
+  mobno: {
+    type: Number,
     unique: true,
     required: true,
-    trim: true,
-    minlength: 4,
-    maxlength: 64
+    minlength: 10,
+    maxlength: 11
+  },
+  address: {
+    type: String,
+    required: true,
+    maxlength: 120
   },
   password: {
     type: String,

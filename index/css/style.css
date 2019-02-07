@@ -34,7 +34,7 @@ h1 {
 /*-- main --*/
 .main {
     margin: 4em auto;
-    width: 50%;
+    width: 28%;
 }
 .banner {
     background: url(../images/banner.jpg)no-repeat 0px 0px;
@@ -43,17 +43,20 @@ h1 {
 
 /*--signin-form--*/
 .w3 {
-    float: left;
-    width: 48%;
+    float: center;
+    width: 78%;
     margin-right: 4%;
 }
+
 .agile {
-    float: right;
-    width: 48%;
+    float: center;
+    width: 98%;
+margin: 4em auto;
+    width: 28%;
 }
 .signin-form {
     background-size: cover;
-    padding: 2em 2em;
+    padding: 1em 1em;
 	text-align: center;
 }
 .signin-form h3 {
@@ -66,7 +69,7 @@ h1 {
     color: #67e1ff;
 }
 .signin-form img {
-    border-radius: 50%;
+    border-radius: 30%;
 }
 .login-form {
     margin: 1em 0 2.5em;

@@ -14,10 +14,12 @@ router.post('/', (req, res, next) => {
         return next(err);
     }
 
-    if(req.body.email && req.body.username && req.body.password && req.body.passwordConf) {
+    if(req.body.name && req.body.email && req.body.mobno && req.body.address && req.body.password && req.body.passwordConf) {
         var userData = {
+            name: req.body.name,
             email: req.body.email,
-            username: req.body.username,
+            mobno: req.body.mobno,
+            address: req.body.address,
             password: req.body.password,
             passwordConf: req.body.passwordConf,
         }
@@ -101,7 +103,7 @@ router.get('/profile', (req, res, next) => {
                 err.status = 400;
                 return next(err);
             } else {
-                return res.send('<h1> Name: </h1>' + user.username + '<h2>Email: </h2>' + user.email + '<br><a type = "button" href="/logout">Logout</a>')
+                return res.send('<h1> Name: </h1>' + user.name + '<h2>Email: </h2>' + user.email + '<br><a type = "button" href="/logout">Logout</a>')
             }
         }
     });
