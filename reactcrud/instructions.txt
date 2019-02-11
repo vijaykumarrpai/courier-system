@@ -1,0 +1,10 @@
+go to reactcrud and npm install
+
+then go to api folder run npm install
+
+then run node server.js
+
+come out of api and run cmd
+	npm start
+	
+
