@@ -24,6 +24,21 @@ class App extends Component {
                 <li className="nav-item">
                   <Link to={'/index'} className="nav-link">Index</Link>
                 </li>
+                <li className="nav-item">
+                  <Link to={'/user'} className="nav-link">User</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to={'/agent'} className="nav-link">Agent</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to={'/track'} className="nav-link">Track</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to={'/settings'} className="nav-link">Settings</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to={'/logout'} className="nav-link">Log Out</Link>
+                </li>
               </ul>
             </div>
           </nav>
