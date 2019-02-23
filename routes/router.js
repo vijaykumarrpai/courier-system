@@ -29,7 +29,7 @@ router.post('/', (req, res, next) => {
                 return next(error);
             } else {
                 req.session.userId = user._id;
-                return res.redirect('/profile');
+                return res.redirect('http://localhost:3001/');
             }
         });
 
@@ -41,7 +41,7 @@ router.post('/', (req, res, next) => {
                 return next(err);
             } else {
                 req.session.userId = user._id;
-                return res.redirect('/profile');
+                return res.redirect('http://localhost:3001/');
             }
         });
     } else {
