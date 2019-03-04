@@ -6,6 +6,10 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const config = require('./DB.js');
 const packageRoute = require('./package.route');
+const shortId = require('mongodb-short-id');
+
+var _id = shortId.longToShort('5c7cb7f2d6506a2ecc0ec2f4');
+console.log(_id);
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB, { useNewUrlParser: true }).then(

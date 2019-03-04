@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Create from './components/create.component';
 import Edit from './components/edit.component';
 import Index from './components/index.component';
+import Agent from './components/agent.component';
 
 class App extends Component {
   render() {
@@ -48,6 +49,7 @@ class App extends Component {
               <Route exact path='/create' component={ Create } />
               <Route path='/edit/:id' component={ Edit } />
               <Route path='/index' component={ Index } />
+              <Route path='/agent' component={ Agent } />
           </Switch>
         </div>
       </Router>
