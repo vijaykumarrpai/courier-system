@@ -2,10 +2,12 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 
+// to fetch the index page
 router.get('/', (req, res, next) => {
     return res.sendFile(path.join(__dirname + '/index/index.html'));
 });
 
+// to check whether the password and password Confirmation is same or not
 router.post('/', (req, res, next) => {
     if (req.body.password !== req.body.passwordConf) {
         const err = new Error('Please enter correct password');
@@ -14,6 +16,7 @@ router.post('/', (req, res, next) => {
         return next(err);
     }
 
+    // To verify all the entries and store it in userData
     if(req.body.name && req.body.email && req.body.mobno && req.body.address && req.body.password && req.body.passwordConf) {
         var userData = {
             name: req.body.name,
@@ -32,7 +35,7 @@ router.post('/', (req, res, next) => {
                 return res.redirect('http://localhost:3001/');
             }
         });
-
+// To check whether the entered email and password is valid or not
     } else if (req.body.logemail && req.body.logpassword) {
         User.authenticate(req.body.logemail, req.body.logpassword, (error, user) => {
             if(error || !user) {
@@ -51,6 +54,7 @@ router.post('/', (req, res, next) => {
     }
 })
 
+// To create user profile and display name and email id
 router.get('/profile', (req, res, next) => {
     User.findById(req.session.userId)
     .exec((error, user) => {
@@ -68,6 +72,7 @@ router.get('/profile', (req, res, next) => {
     });
 });
 
+// To logout
 router.get('/logout', (req, res, next) => {
     if(req.session) {
         req.session.destroy((err) => {
