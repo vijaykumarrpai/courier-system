@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const validator = require('email-validator');
 
+// Define collection and schema for user
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -29,7 +30,7 @@ const UserSchema = new mongoose.Schema({
     unique: true,
     required: true,
     minlength: 10,
-    maxlength: 11
+    maxlength: 13
   },
   address: {
     type: String,
@@ -40,16 +41,17 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
     minlength: 8,
-    maxlength: 128
+    maxlength: 64
   },
   passwordConf: {
     type: String,
     required: true,
     minlength: 8,
-    maxlength: 128
+    maxlength: 64
   }
 });
 
+// Authenticating whether user exist or not
 UserSchema.statics.authenticate = function (email, password, callback) {
   User.findOne({ email: email })
     .exec(function (err, user) {
@@ -69,7 +71,7 @@ UserSchema.statics.authenticate = function (email, password, callback) {
       })
     });
 }
-
+// Storing the user password and hashing it
 UserSchema.pre('save', function(next) {
     let user = this;
     bcrypt.genSalt(10).then((salt) => {
@@ -80,6 +82,7 @@ UserSchema.pre('save', function(next) {
     })
 });
 
+// Storing the password confirmation and hashing it
 UserSchema.pre('save', function(next) {
     let user = this;
     bcrypt.genSalt(10).then((salt) => {

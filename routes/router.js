@@ -51,47 +51,6 @@ router.post('/', (req, res, next) => {
     }
 })
 
-// router.get('/:id', (req, res) => {
-//     let id = req.params.id;
-
-//     User.findById(id).then((User) => {
-//         if(user) {
-//             res.send(user);
-//         } else {
-//             res.status(404).send({
-//                 notice: 'User not found'
-//             })
-//         }
-//     })
-//     .catch((err) => {
-//         res.send(err);
-//     })
-// });
-
-// router.delete('/users/:id', (req, res) => {
-//     let token = req.header('x-auth');
-//     let detoken = tokenValidate(token);
-//     id = deToken.id;
-//     User.findById(id).then((user) => {
-//         let found = user.token.find(ele => {return ele.token == token});
-//         user.tokens.remove(found_id);
-//         return user.save()
-//     }).then((user) => {
-//         res.send({
-//             notice: 'successfully logged out'
-//         });
-//     })
-//     .catch((err) => {
-//         res.send(err);
-//     });
-// });
-
-// tokenValidate = function(token) {
-//     let sentToken = token;
-//     sentToken = jwt.verify(sentToken, 'supersecret');
-//     return sentToken;
-// }
-
 router.get('/profile', (req, res, next) => {
     User.findById(req.session.userId)
     .exec((error, user) => {
