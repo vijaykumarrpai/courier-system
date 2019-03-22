@@ -6,6 +6,7 @@ import Create from './components/create.component';
 import Edit from './components/edit.component';
 import Index from './components/index.component';
 import Agent from './components/agent.component';
+import Logout from './components/logout.component';
 
 class App extends Component {
   render() {
@@ -26,16 +27,7 @@ class App extends Component {
                   <Link to={'/index'} className="nav-link">Index</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to={'/user'} className="nav-link">User</Link>
-                </li>
-                <li className="nav-item">
                   <Link to={'/agent'} className="nav-link">Agent</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to={'/track'} className="nav-link">Track</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to={'/settings'} className="nav-link">Settings</Link>
                 </li>
                 <li className="nav-item">
                   <Link to={'/logout'} className="nav-link">Log Out</Link>
@@ -50,6 +42,7 @@ class App extends Component {
               <Route path='/edit/:id' component={ Edit } />
               <Route path='/index' component={ Index } />
               <Route path='/agent' component={ Agent } />
+              <Route path='/logout' component={ Logout } />
           </Switch>
         </div>
       </Router>
