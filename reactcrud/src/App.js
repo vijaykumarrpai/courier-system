@@ -30,6 +30,9 @@ class App extends Component {
                   <Link to={'/agent'} className="nav-link">Agent</Link>
                 </li>
                 <li className="nav-item">
+                  <Link to={'/settings'} className="nav-link">Settings</Link>
+                </li>
+                <li className="nav-item">
                   <Link to={'/logout'} className="nav-link">Log Out</Link>
                 </li>
               </ul>

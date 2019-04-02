@@ -57,7 +57,7 @@ export default class Create extends Component {
                     <label>Person Name:  </label>
                     <input 
                       type="text" 
-                      className="form-control" 
+                      className="form-control" name = "personname"
                       value={this.state.person_name}
                       onChange={this.onChangePersonName}
                       />
@@ -65,7 +65,7 @@ export default class Create extends Component {
                 <div className="form-group">
                     <label>Package Name: </label>
                     <input type="text" 
-                      className="form-control"
+                      className="form-control" name = "packagename"
                       value={this.state.package_name}
                       onChange={this.onChangePackageName}
                       />
@@ -73,14 +73,14 @@ export default class Create extends Component {
                 <div className="form-group">
                     <label>Package Number: </label>
                     <input type="text" 
-                      className="form-control"
+                      className="form-control" name = "packageno"
                       value={this.state.package_number}
                       onChange={this.onChangePackageNumber}
                       />
                 </div>
                 <div className="form-group">
                     <input type="submit" 
-                      value="Register Parcel" 
+                      value="Register Parcel" name = "submit"
                       className="btn btn-primary"/>
                 </div>
             </form>

@@ -1,0 +1,7 @@
+# To start server : npm run dev
+# To install dependencies : npm install
+
+
+# for main page : localhost:3000
+# for register page : localhost:3000/register
+# for login page : localhost:3000/login

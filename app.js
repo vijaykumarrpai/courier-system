@@ -5,7 +5,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
-
+// mongodb://subham:subham123@ds149557.mlab.com:49557/courier_delivery_dev
 mongoose.connect('mongodb://localhost:27017/vascourier', {useNewUrlParser: true});
 const db = mongoose.connection;
 
