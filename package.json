@@ -21,8 +21,10 @@
     "jsonwebtoken": "^8.4.0",
     "lodash": "^4.17.11",
     "mongoose": "^5.4.2",
+    "nexmo": "^2.4.1",
     "nodemon": "^1.18.9",
     "path": "^0.12.7",
+    "smpp": "^0.3.1",
     "validator": "^10.11.0"
   },
   "devDependencies": {},

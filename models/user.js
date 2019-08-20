@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const validator = require('email-validator');
+const smpp = require('smpp');
 
 // Define collection and schema for user
 const UserSchema = new mongoose.Schema({
