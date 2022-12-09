@@ -16,7 +16,7 @@
     "connect-mongo": "^2.0.3",
     "cors": "^2.8.5",
     "email-validator": "^2.0.4",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "express-session": "^1.15.6",
     "jsonwebtoken": "^8.4.0",
     "lodash": "^4.17.11",
